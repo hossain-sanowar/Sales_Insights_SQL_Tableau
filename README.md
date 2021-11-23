@@ -1,43 +1,35 @@
-# Sales_Insights_SQL_Tableau
+# Sales_Insights_SQL_Tableau:
 
-1. Sales Insights Data Analysis Project
+## 1. Sales Insights database:
+      SQL database dump: db_dump.sql
 
-SQL database dump is in db_dump.sql
+## 2. Data Analysis Using SQL:
+      Show all customer records
+      SELECT * FROM customers;
 
-2. Data Analysis Using SQL:
- Show all customer records
+## 3. Show total number of customers:
+      SELECT count(*) FROM customers;
 
- SELECT * FROM customers;
+## 4. Show transactions for Chennai market (market code for chennai is Mark001):
+      SELECT * FROM transactions where market_code='Mark001';
 
-3. Show total number of customers:
+## 5. Show distrinct product codes that were sold in chennai:
+      SELECT distinct product_code FROM transactions where market_code='Mark001';
 
- SELECT count(*) FROM customers;
+## 6. Show transactions where currency is US dollars:
+      SELECT * from transactions where currency="USD"
 
-4. Show transactions for Chennai market (market code for chennai is Mark001):
+## 7. Show transactions in 2020 join by date table:
+      SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;
 
- SELECT * FROM transactions where market_code='Mark001';
+## 8. Show total revenue in year 2020:
+      SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and      
+      transactions.currency="INR\r" or transactions.currency="USD\r";
+## 9. Show total revenue in year 2020, January Month,
+      SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and 
+      date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");
 
-5. Show distrinct product codes that were sold in chennai:
-
- SELECT distinct product_code FROM transactions where market_code='Mark001';
-
-6. Show transactions where currency is US dollars:
-
- SELECT * from transactions where currency="USD"
-
-7. Show transactions in 2020 join by date table:
-
-SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;
-
-8. Show total revenue in year 2020:
-
-SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";
-
-9. Show total revenue in year 2020, January Month,
-
-SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");
-
-10. Show total revenue in year 2020 in Chennai
-
-SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark001";
+## 10. Show total revenue in year 2020 in Chennai
+       SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and 
+       transactions.market_code="Mark001";
 
