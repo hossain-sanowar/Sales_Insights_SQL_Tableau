@@ -1,4 +1,4 @@
-# Sales_Insights_SQL_Tableau:
+# I have analysed Sales_Insights for ATLIQ company using SQL and Tableau:
 
 ## 1. Sales Insights database:
       SQL database dump: db_dump.sql
